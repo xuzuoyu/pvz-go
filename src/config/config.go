@@ -1,4 +1,4 @@
-package src
+package config
 
 type PlantType string
 type BulletType string

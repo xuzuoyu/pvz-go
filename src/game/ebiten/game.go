@@ -1,6 +1,9 @@
-package src
+package ebiten
 
 import (
+	"PvZ-go/src/entity"
+	"PvZ-go/src/game/game_init"
+	"PvZ-go/src/game/logic"
 	"image/color"
 
 	"github.com/hajimehoshi/ebiten/v2"
@@ -8,18 +11,18 @@ import (
 )
 
 type Game struct {
-	state *GameState
+	state *game_init.GameState
 }
 
 func NewGame() *Game {
 	return &Game{
-		state: &GameState{
-			Plants: []Plant{
+		state: &game_init.GameState{
+			Plants: []entity.Plant{
 				{Type: "pea",
 					X: 2,
 					Y: 2},
 			},
-			Zombies: []Zombie{
+			Zombies: []entity.Zombie{
 				{
 					X:     10,
 					Y:     10,
@@ -32,10 +35,10 @@ func NewGame() *Game {
 }
 
 func (g *Game) Update() error {
-	SpawnSystem(g.state)
-	ZombieMoveSystem(g.state)
-	HitSystem(g.state)
-	CleanupSystem(g.state)
+	logic.SpawnSystem(g.state)
+	logic.ZombieMoveSystem(g.state)
+	logic.HitSystem(g.state)
+	logic.CleanupSystem(g.state)
 
 	return nil
 }

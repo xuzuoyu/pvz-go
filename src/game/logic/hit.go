@@ -1,10 +1,12 @@
-package src
+package logic
 
 import (
+	"PvZ-go/src/config"
+	"PvZ-go/src/game/game_init"
 	"math"
 )
 
-func HitSystem(state *GameState) {
+func HitSystem(state *game_init.GameState) {
 	for bi := range state.Bullets {
 		b := &state.Bullets[bi]
 
@@ -20,7 +22,7 @@ func HitSystem(state *GameState) {
 			}
 
 			if math.Abs(b.X-z.X) < 0.3 && b.Y == z.Y {
-				cfg := Bullets[b.Type]
+				cfg := config.Bullets[b.Type]
 				z.HP -= cfg.Damage
 				b.Alive = false
 				break

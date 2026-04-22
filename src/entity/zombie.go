@@ -1,4 +1,4 @@
-package src
+package entity
 
 type Zombie struct {
 	X, Y  float64

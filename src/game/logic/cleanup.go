@@ -1,6 +1,10 @@
-package src
+package logic
 
-func CleanupSystem(state *GameState) {
+import (
+	"PvZ-go/src/game/game_init"
+)
+
+func CleanupSystem(state *game_init.GameState) {
 	// Compact bullets in place and keep only active ones.
 	bulletCount := 0
 	for _, b := range state.Bullets {
