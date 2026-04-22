@@ -4,8 +4,8 @@ import (
 	"math"
 )
 
-func HitSystem(state GameState) {
-	for bi := range Bullets {
+func HitSystem(state *GameState) {
+	for bi := range state.Bullets {
 		b := &state.Bullets[bi]
 
 		if !b.Alive {

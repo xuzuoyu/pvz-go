@@ -1,6 +1,6 @@
 package src
 
-func BulletMoveSystem(state GameState) {
+func BulletMoveSystem(state *GameState) {
 	for i := range state.Bullets {
 		b := &state.Bullets[i]
 		if !b.Alive {
@@ -16,7 +16,7 @@ func BulletMoveSystem(state GameState) {
 	}
 }
 
-func ZombieMoveSystem(state GameState) {
+func ZombieMoveSystem(state *GameState) {
 	for i := range state.Zombies {
 		state.Zombies[i].X -= state.Zombies[i].Speed
 	}
